@@ -2,24 +2,23 @@
   <footer>
     <div class="container">
       <nav>
-        <a v-for="route in routes" :href="route.path" :class="router.currentRoute.value.path === route.path ? 'active' : ''"> {{ route.name }} </a>
+        <router-link v-for="route in routes" :to="route.path" :class="router.currentRoute.value.path === route.path ? 'active' : ''"> {{ route.name }} </router-link>
       </nav>
     </div>
 
-    <div class="container">
+    <div class="container contact-details">
       <div>
         <h4>Call Us</h4>
-        <a href="whatsapp://send?phone=+27 72 999 6830">(+27) 72 999 6830</a>
+        <router-link to="whatsapp://send?phone=+27 72 999 6830">(+27) 72 999 6830</router-link>
 
         <h4>Email Us</h4>
-        <a href="mailto:mugprintz@gmail.com">mugprintz@gmail.com</a>
+        <router-link to="mailto:mugprintz@gmail.com">mugprintz@gmail.com</router-link>
 
         <h4>Connect With Us On Facebook</h4>
-        <a
-          href="https://www.facebook.com/profile.php?id=100003782772666&mibextid=ZbWKwL"
+        <router-link
+          to="https://www.facebook.com/profile.php?id=100003782772666&mibextid=ZbWKwL"
           target="_blank"
-          >Mugprintz</a
-        >
+          >Mugprintz</router-link>
       </div>
       <div>
         <h3 class="visit-us">Visit Us</h3>
@@ -86,6 +85,10 @@ footer {
   width: 100vw;
   background: blueviolet;
   box-sizing: border-box;
+}
+
+.contact-details a{
+  font-weight: normal;
 }
 
 img {

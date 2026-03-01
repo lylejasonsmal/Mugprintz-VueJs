@@ -2,20 +2,43 @@
   <header :class="router.currentRoute.value.path === '/about-us' ? 'about-us' : ''">
     <img :src="router.currentRoute.value.path === '/about-us' ? logoDark: logoLight" />
     <nav>
-      <a v-for="route in routes" :href="route.path" :class="router.currentRoute.value.path === route.path ? 'active' : ''"> {{route.name}} </a>
+      <router-link v-for="route in routes" :to="route.path" :class="router.currentRoute.value.path === route.path ? 'active' : ''"> {{route.name}} </router-link>
     </nav>
-    <button>
+    <button @click="sendMessage">
       <i class="fa fa-whatsapp"/>
-      Whatsapp Us Today
     </button>
+
+    <!-- Hamburger Menu Icon for Mobile -->
+    <span class="material-symbols-outlined" @click="toggleMenu">
+      menu
+    </span>
+    <div class="mobile-menu" v-show="isMenuOpen">
+      <router-link v-for="route in routes" :to="route.path" :class="router.currentRoute.value.path === route.path ? 'active' : ''"> {{route.name}} </router-link>
+    </div>
   </header>
 </template>
 <script setup>
 import router from '@/router/index.js'
 import logoLight from '@/assets/logos/Mugprintz.png'
 import logoDark from '@/assets/logos/Mugprintz2.png'
+import { ref } from 'vue'
 
 const routes = router.getRoutes()
+const isMenuOpen = ref(false);
+
+function toggleMenu() {
+  isMenuOpen.value = !isMenuOpen.value
+}
+
+const phoneNumber = '27729996830'
+function sendMessage() {
+  const text = `Hey Mugprintz Team! I came across your website and would like to get in touch with you. I have some questions about your products and services. Looking forward to hearing from you!`
+
+  const whatsappAppLink = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(text)}`
+  const whatsappWebLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`
+
+  window.open(whatsappAppLink, '_blank') || window.open(whatsappWebLink, '_blank')
+}
 </script>
 <style scoped>
 header {
@@ -31,6 +54,7 @@ header {
   align-items: center;
   border-bottom: 1px solid #d5d5d5;
   z-index: 1000;
+  color: #141414;
 }
 
 img {
@@ -74,11 +98,12 @@ a:hover {
 
 .active:hover {
   opacity: 75%;
-  border-bottom: 5px solid #d5d5d5;
+  border-bottom: 5px solid blueviolet;
 }
 
 .about-us {
   background: #141414;
+  color: white;
   border-bottom: 1px solid #282828;
 }
 
@@ -98,7 +123,7 @@ a:hover {
 
 .about-us .active:hover {
   opacity: 75%;
-  border-bottom: 5px solid #484848;
+  border-bottom: 5px solid blueviolet;
 }
 
 button{
@@ -113,5 +138,30 @@ button{
 
 i{
   font-size: 150%;
+}
+
+@media (max-width: 600px) {
+  nav {
+    display: none;
+  }
+
+  .mobile-menu{
+   position: fixed;
+    z-index: 2000;
+    top: 10vh;
+    right: 0;
+    width: 100vw;
+    height: 90vh;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-size: 140%;
+  }
+
+  button{
+    display: none;
+  }
 }
 </style>

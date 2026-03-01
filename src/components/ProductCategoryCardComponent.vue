@@ -1,6 +1,6 @@
 <script setup>
 import productCategories from '@/assets/Products/ProductCategories.js'
-import ProductCardComponent from '@/components/ProductCardComponent.vue'
+import ProductCardComponent from '@/components/Products/ProductCardComponent.vue'
 
 const params = defineProps({
   category: String
@@ -28,6 +28,7 @@ const products = productCategories[params.category] || []
 
 .products-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
 }

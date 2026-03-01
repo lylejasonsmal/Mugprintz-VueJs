@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div v-for="categoryName in Object.keys(productCategories)" :key="categoryName">
-      <!-- Pass the category name to the card component -->
       <ProductCategoryCardComponent :category="categoryName" />
     </div>
   </div>
@@ -16,5 +15,6 @@ import ProductCategoryCardComponent from '@/components/ProductCategoryCardCompon
 .container {
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 </style>

@@ -1,16 +1,24 @@
 <template>
-  <div class="product-card">
-    <img :src="params.product.imgSrc" :alt="params.product.name" class="product-image" />
-    <h4 class="product-name">{{ params.product.name }}</h4>
-    <p v-if="params.product.description || params.product.price  " class="show-more" @click="toggleInfo">
+  <LoadingProductCardComponent v-if="!product" />
+
+  <div v-else class="product-card">
+    <img :src="product.imgSrc" :alt="product.name" class="product-image" />
+    <h4 class="product-name">{{ product.name }}</h4>
+    <p
+      v-if="product.description || product.price"
+      class="show-more"
+      @click="toggleInfo"
+    >
       {{ showDetailsMessage }}
-      <span class="material-symbols-outlined"> {{isInfoShown? 'keyboard_arrow_up' : 'keyboard_arrow_down'}} </span>
+      <span class="material-symbols-outlined">
+        {{ isInfoShown ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
+      </span>
     </p>
     <div class="additional-details" v-show="isInfoShown">
-      <p v-if="params.product.description" class="product-description">
-        {{ params.product.description }}
+      <p v-if="product.description" class="product-description">
+        {{ product.description }}
       </p>
-      <h1 v-if="params.product.price">{{ params.product.price }}</h1>
+      <h1 v-if="product.price">{{ product.price }}</h1>
     </div>
     <button @click="sendMessage">
       Enquire About This Product
@@ -20,7 +28,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import LoadingProductCardComponent from '@/components/Products/LoadingProductCardComponent.vue'
 
 const params = defineProps({
   product: Object,
@@ -43,6 +52,13 @@ function sendMessage() {
 
   window.open(whatsappAppLink, '_blank') || window.open(whatsappWebLink, '_blank')
 }
+
+const product = ref(null)
+onMounted(() => {
+  setTimeout(() => {
+    product.value = params.product
+  }, 3000)
+})
 </script>
 
 <style scoped>
@@ -77,7 +93,7 @@ function sendMessage() {
   color: #141414;
 }
 
-.additional-details{
+.additional-details {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -114,5 +130,9 @@ button {
   border-radius: 0;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+h1{
+  font-weight: bolder;
 }
 </style>

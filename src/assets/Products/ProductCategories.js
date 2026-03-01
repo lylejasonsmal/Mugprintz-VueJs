@@ -28,7 +28,8 @@ const productCategories = {
     new Product(
       "Balloon With A Basket",
       new URL("@/assets/Mugprintz Images/balloon-basket.png", import.meta.url).href,
-      "Custom printed balloons with a basket design, perfect for celebrations, events, or promotional activities. Our high-quality prints ensure vibrant colors and long-lasting enjoyment."
+      "Custom printed balloons with a basket design, perfect for celebrations, events, or promotional activities. Our high-quality prints ensure vibrant colors and long-lasting enjoyment.",
+      "R120.00"
     )
   ],
 
