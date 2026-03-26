@@ -43,7 +43,7 @@
 
     <div class="txt-area">
       <h4 class="txt-description">
-        Creating smiles
+        Creating Smiles!
       </h4>
     </div>
   </div>
@@ -89,11 +89,7 @@ body {
   max-width: 40vw;
 }
 
-#sa-flag{
-  background: white;
-}
-
 .logo{
-  height: 15vh;
+  height: 100px;
 }
 </style>

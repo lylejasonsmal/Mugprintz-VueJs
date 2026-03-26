@@ -8,25 +8,37 @@
 
     <div class="container contact-details">
       <div>
-        <h4>Call Us</h4>
-        <router-link to="whatsapp://send?phone=+27 72 999 6830">(+27) 72 999 6830</router-link>
+        <h3>Call Us</h3>
+        <a href="whatsapp://send?phone=+27 72 999 6830">(+27) 72 999 6830</a>
 
-        <h4>Email Us</h4>
-        <router-link to="mailto:mugprintz@gmail.com">mugprintz@gmail.com</router-link>
+        <h3>Email Us</h3>
+        <a href="mailto:mugprintz@gmail.com">mugprintz@gmail.com</a>
 
-        <h4>Connect With Us On Facebook</h4>
-        <router-link
-          to="https://www.facebook.com/profile.php?id=100003782772666&mibextid=ZbWKwL"
+        <h3>Connect With Us On Facebook</h3>
+        <a
+          href="https://www.facebook.com/profile.php?id=100003782772666&mibextid=ZbWKwL"
           target="_blank"
-          >Mugprintz</router-link>
+          >Mugprintz</a>
       </div>
+
       <div>
-        <h3 class="visit-us">Visit Us</h3>
+        <h3 class="visit-us">
+          Visit Us
+        </h3>
         <p class="address">123 Main Rd.</p>
         <p class="address">Wynberg</p>
         <p class="address">Cape Town</p>
         <p class="address">Western Cape, South Africa</p>
         <p class="address">7824</p>
+      </div>
+
+      <div class="trading-hours">
+        <h3>
+          Trading Hours
+        </h3>
+        <p><strong>Monday - Friday:</strong> 07:30AM - 17:30PM</p>
+        <p><strong>Saturday:</strong>  07:30AM - 16:00PM</p>
+        <p><strong>Sunday:</strong> 07:30AM - 14:00PM</p>
       </div>
     </div>
     <div class="container bottom">
@@ -34,7 +46,8 @@
     </div>
   </footer>
   <div class="container developer">
-
+  <h3>
+  </h3>
   </div>
 </template>
 <script setup>
@@ -65,11 +78,24 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   min-height: 5vh;
   width: 90vw;
   border-bottom: 1px solid #282828;
   padding: 20px;
+  flex-wrap: wrap;
+}
+
+.container div{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.container p{
+  margin: 10px;
+  margin-left: 0;
 }
 
 .bottom{
@@ -87,21 +113,29 @@ footer {
   box-sizing: border-box;
 }
 
+.trading-hours{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 .contact-details a{
   font-weight: normal;
 }
 
 img {
-  max-height: 7.5vh;
+  max-height: 100px;
   aspect-ratio: 1/1;
 }
 
 nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   column-gap: 20px;
+  flex-wrap: wrap;
 }
 
 a {
@@ -122,6 +156,15 @@ a:hover {
 
 .active:hover {
   opacity: 75%;
+}
+
+@media (max-width: 600px ) {
+  .container{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+  }
 }
 
 </style>

@@ -3,16 +3,14 @@
 
   <div v-else class="product-card">
     <img :src="product.imgSrc" :alt="product.name" class="product-image" />
-    <h4 class="product-name">{{ product.name }}</h4>
+    <h3 class="product-name">{{ product.name }}</h3>
     <p
       v-if="product.description || product.price"
       class="show-more"
       @click="toggleInfo"
     >
       {{ showDetailsMessage }}
-      <span class="material-symbols-outlined">
-        {{ isInfoShown ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
-      </span>
+      <MaterialDesignIcon :icon="isInfoShown ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"/>
     </p>
     <div class="additional-details" v-show="isInfoShown">
       <p v-if="product.description" class="product-description">
@@ -22,14 +20,15 @@
     </div>
     <button @click="sendMessage">
       Enquire About This Product
-      <span class="material-symbols-outlined"> chevron_right </span>
+      <MaterialDesignIcon icon="chevron_right"/>
     </button>
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import LoadingProductCardComponent from '@/components/Products/LoadingProductCardComponent.vue'
+import MaterialDesignIcon from '@/components/Commonly Used/MaterialDesignIcon.vue'
 
 const params = defineProps({
   product: Object,
@@ -63,7 +62,8 @@ onMounted(() => {
 
 <style scoped>
 .product-card {
-  width: 300px;
+  min-width: 300px !important;
+  max-width: 300px !important;
   display: flex;
   flex-direction: column;
   align-items: center;

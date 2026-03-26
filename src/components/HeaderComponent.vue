@@ -4,16 +4,27 @@
     <nav>
       <router-link v-for="route in routes" :to="route.path" :class="router.currentRoute.value.path === route.path ? 'active' : ''"> {{route.name}} </router-link>
     </nav>
-    <button @click="sendMessage">
+    <button class="desktop-button" @click="sendMessage">
       <i class="fa fa-whatsapp"/>
     </button>
 
     <!-- Hamburger Menu Icon for Mobile -->
-    <span class="material-symbols-outlined" @click="toggleMenu">
-      menu
+    <span class="material-symbols-outlined mobile-menu-hamburger" @click="toggleMenu">
+      {{isMenuOpen? "close": "menu"}}
     </span>
     <div class="mobile-menu" v-show="isMenuOpen">
-      <router-link v-for="route in routes" :to="route.path" :class="router.currentRoute.value.path === route.path ? 'active' : ''"> {{route.name}} </router-link>
+      <div>
+      <router-link v-for="route in routes" :to="route.path" :class="router.currentRoute.value.path === route.path ? 'active' : ''" @click="toggleMenu">
+        <h3>
+          <material-design-icon :icon="route.meta.icon"/> &nbsp; {{route.name}}
+        </h3>
+      </router-link>
+      </div>
+
+        <button @click="sendMessage">
+          <i class="fa fa-whatsapp"/>
+          WhatsApp Us Today
+        </button>
     </div>
   </header>
 </template>
@@ -22,6 +33,7 @@ import router from '@/router/index.js'
 import logoLight from '@/assets/logos/Mugprintz.png'
 import logoDark from '@/assets/logos/Mugprintz2.png'
 import { ref } from 'vue'
+import MaterialDesignIcon from '@/components/Commonly Used/MaterialDesignIcon.vue'
 
 const routes = router.getRoutes()
 const isMenuOpen = ref(false);
@@ -45,16 +57,16 @@ header {
   position: fixed;
   top: 0;
   right: 0;
-  width: 100vw;
-  height: 10vh;
+  width: 100%;
+  height: 75px;
   background: white;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 1px solid #d5d5d5;
   z-index: 1000;
   color: #141414;
+  margin: 0;
 }
 
 img {
@@ -134,10 +146,16 @@ button{
   background: #25D366;
   color: white;
   gap: 5px;
+  font-weight: bold;
+  border: none;
 }
 
 i{
   font-size: 150%;
+}
+
+.mobile-menu-hamburger{
+  display: none;
 }
 
 @media (max-width: 600px) {
@@ -145,23 +163,55 @@ i{
     display: none;
   }
 
+  .mobile-menu-hamburger{
+    display: flex;
+  }
+
   .mobile-menu{
    position: fixed;
     z-index: 2000;
-    top: 10vh;
+    top: 75px;
     right: 0;
-    width: 100vw;
-    height: 90vh;
+    width: 100%;
+    height: 100%;
     background: white;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    gap: 20px;
     font-size: 140%;
+    overflow-y: scroll;
+    animation: expandOpen 0.5s ease-in-out;
+    gap: 25px;
+  }
+
+  a{
+    height: 100px;
+    min-width: 50vw;
+  }
+  .about-us .mobile-menu{
+    background: #141414;
+    color: white;
+  }
+
+  .desktop-button{
+    display: none;
   }
 
   button{
-    display: none;
+    font-size: 0.75em;
+  }
+
+  @keyframes expandOpen {
+    from{
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to{
+      opacity: 1;
+      transform: translateX( 0%);
+    }
+
   }
 }
 </style>

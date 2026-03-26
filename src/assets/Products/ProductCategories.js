@@ -24,12 +24,6 @@ const productCategories = {
       "Printed Apparel",
       new URL("@/assets/Mugprintz Images/bucket-hat.png", import.meta.url).href,
       "Custom printed apparel including bucket hats, hoodies, and more. Perfect for promoting your brand or creating unique fashion statements."
-    ),
-    new Product(
-      "Balloon With A Basket",
-      new URL("@/assets/Mugprintz Images/balloon-basket.png", import.meta.url).href,
-      "Custom printed balloons with a basket design, perfect for celebrations, events, or promotional activities. Our high-quality prints ensure vibrant colors and long-lasting enjoyment.",
-      "R120.00"
     )
   ],
 

@@ -2,6 +2,34 @@
 
 * {
     font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+}
+h1 {
+    font-size: 2.5em; /* ~125% of default 2em */
+}
+
+h2 {
+    font-size: 1.875em; /* ~125% of 1.5em */
+}
+
+h3 {
+    font-size: 1.5625em; /* ~125% of 1.25em */
+}
+
+h4 {
+    font-size: 1.25em; /* ~125% of 1em */
+}
+
+h5 {
+    font-size: 1.125em; /* ~125% of 0.875em */
+}
+
+h6 {
+    font-size: 1em; /* ~125% of 0.75em */
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight:900 !important;
 }
 
 button{
@@ -9,7 +37,7 @@ button{
     backdrop-filter: blur(20px);
     color: #141414;
     font-size: 100%;
-    border: none;
+    border: 1px solid #141414;
     border-radius: 10px;
     padding: 10px;
     font-weight: bolder;
