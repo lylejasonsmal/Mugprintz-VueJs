@@ -54,9 +54,7 @@ function sendMessage() {
 
 const product = ref(null)
 onMounted(() => {
-  setTimeout(() => {
     product.value = params.product
-  }, 3000)
 })
 </script>
 

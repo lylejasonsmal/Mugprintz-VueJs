@@ -16,7 +16,7 @@
       <div>
       <router-link v-for="route in routes" :to="route.path" :class="router.currentRoute.value.path === route.path ? 'active' : ''" @click="toggleMenu">
         <h3>
-          <material-design-icon :icon="route.meta.icon"/> &nbsp; {{route.name}}
+          <material-design-icon :icon="route.meta.icon" size="45px"/> &nbsp; {{route.name}}
         </h3>
       </router-link>
       </div>
@@ -35,7 +35,7 @@ import logoDark from '@/assets/logos/Mugprintz2.png'
 import { ref } from 'vue'
 import MaterialDesignIcon from '@/components/Commonly Used/MaterialDesignIcon.vue'
 
-const routes = router.getRoutes()
+const routes = router.getRoutes().filter(x=>x.meta.category === 'basic')
 const isMenuOpen = ref(false);
 
 function toggleMenu() {
@@ -183,6 +183,13 @@ i{
     overflow-y: scroll;
     animation: expandOpen 0.5s ease-in-out;
     gap: 25px;
+  }
+
+  .mobile-menu h3{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   a{

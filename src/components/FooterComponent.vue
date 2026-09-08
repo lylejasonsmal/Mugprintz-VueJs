@@ -1,8 +1,8 @@
 <template>
   <footer>
-    <div class="container">
+    <div class="container navigation">
       <nav>
-        <router-link v-for="route in routes" :to="route.path" :class="router.currentRoute.value.path === route.path ? 'active' : ''"> {{ route.name }} </router-link>
+        <router-link v-for="route in basicRoutes" :to="route.path" :class="router.currentRoute.value.path === route.path ? 'active' : ''"> {{ route.name }} </router-link>
       </nav>
     </div>
 
@@ -36,24 +36,29 @@
         <h3>
           Trading Hours
         </h3>
-        <p><strong>Monday - Friday:</strong> 07:30AM - 17:30PM</p>
-        <p><strong>Saturday:</strong>  07:30AM - 16:00PM</p>
-        <p><strong>Sunday:</strong> 07:30AM - 14:00PM</p>
+        <p><strong>Monday - Friday:</strong> 07:30AM - 19:00PM</p>
+        <p><strong>Saturday & Sunday:</strong>  07:30AM - 16:00PM</p>
       </div>
+
     </div>
     <div class="container bottom">
       <img src="/src/assets/logos/Mugprintz2.png" />
+      <nav>
+        <router-link v-for="route in legalRoutes" :to="route.path"> {{ route.name }} </router-link>
+      </nav>
     </div>
   </footer>
-  <div class="container developer">
+  <div v-if="web_configuration.showGithubBanner" class="container developer">
   <h3>
   </h3>
   </div>
 </template>
 <script setup>
 import router from '@/router/index.js'
+import { web_configuration } from '../../web_configuration.js'
 
-const routes = router.getRoutes()
+const basicRoutes = router.getRoutes().filter(x=>x.meta.category === 'basic')
+const legalRoutes = router.getRoutes().filter(x=>x.meta.category === 'legal')
 </script>
 <style scoped>
 footer {
@@ -100,6 +105,14 @@ footer {
 
 .bottom{
   justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+
+.bottom nav{
+  height: 100%;
+  padding: 15px;
+  border-left: 2px solid #3D3D3D;
 }
 
 .developer{
@@ -122,6 +135,10 @@ footer {
 
 .contact-details a{
   font-weight: normal;
+}
+
+.contact-details h3{
+  margin-bottom: 5px;
 }
 
 img {
@@ -164,6 +181,16 @@ a:hover {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 20px;
+  }
+  .navigation nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .bottom nav{
+    border: none;
   }
 }
 

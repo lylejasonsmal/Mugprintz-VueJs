@@ -1,13 +1,14 @@
 <template>
+  <BasePageTemplate>
   <div class="description-panel" id="norm-panel">
     <div class="txt-area">
       <img class="length-wise-img" src="/src/assets/Mugprintz Images/Mugprintz Storefront.jpg" />
     </div>
 
     <div class="txt-area">
-      <h4 class="txt-description">
-        We Are
-      </h4>
+      <p class="txt-description">
+        We are
+      </p>
       <img src="/src/assets/logos/Mugprintz2.png" class="logo">
     </div>
   </div>
@@ -18,9 +19,9 @@
     </div>
 
     <div class="txt-area">
-      <h4 class="txt-description">
+      <p class="txt-description">
         Established in 2012
-      </h4>
+      </p>
     </div>
   </div>
 
@@ -30,9 +31,9 @@
     </div>
 
     <div class="txt-area">
-      <h4 class="txt-description">
+      <p class="txt-description">
         We're a locally-owned business, sourcing from the surrounding communities
-      </h4>
+      </p>
     </div>
   </div>
 
@@ -42,14 +43,16 @@
     </div>
 
     <div class="txt-area">
-      <h4 class="txt-description">
-        Creating Smiles!
-      </h4>
+      <p class="txt-description">
+        Creating smiles!
+      </p>
     </div>
   </div>
+
+  </BasePageTemplate>
 </template>
 <style scoped>
-body {
+body, .page {
   background: #141414;
 }
 
@@ -87,9 +90,37 @@ body {
   align-items: center;
   justify-items: center;
   max-width: 40vw;
+  font-weight: bold;
 }
 
 .logo{
   height: 100px;
 }
+
+@media (max-width: 600px) {
+  .length-wise-img {
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+
+  .txt-area {
+    width: 100%;
+    height: 35vh;
+    padding: 10px;
+  }
+
+  .txt-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    text-align: center;
+  }
+}
 </style>
+<script setup>
+import BasePageTemplate from '@/views/Base/BasePageTemplate.vue'
+</script>

@@ -66,7 +66,8 @@ import ProductCategoryCardComponent from '@/components/ProductCategoryCardCompon
 .ad-banner {
   width: 100%;
   overflow: hidden;
-  background: #f5f5f5;
+  background: #3D3D3D;
+  color: white;
   margin-bottom: 20px;
 }
 
