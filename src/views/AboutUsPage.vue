@@ -1,5 +1,5 @@
 <template>
-  <BasePageTemplate>
+  <BasePageTemplate title="About Us">
   <div class="description-panel" id="norm-panel">
     <div class="txt-area">
       <img class="length-wise-img" src="/src/assets/Mugprintz Images/Mugprintz Storefront.jpg" />

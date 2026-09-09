@@ -1,5 +1,5 @@
 <template>
-  <BasePageTemplate>
+  <BasePageTemplate title="Privacy Policy">
     <MaterialDesignIcon icon="privacy_tip" size="100px"/>
     <h1>Privacy Policy</h1>
     <p>TO BE WRITTEN UP.</p>

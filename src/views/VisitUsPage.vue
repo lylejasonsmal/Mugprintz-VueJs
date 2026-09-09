@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <BasePageTemplate title="Visit Us">
     <h1>Visit Us In-Store</h1>
     <p>Looking forward to seeing you!</p>
   <GoogleLocationEmbedComponent/>
@@ -9,10 +9,11 @@
       <p>Located adjacent to Clicks</p>
       <img src="../assets/Mugprintz%20Images/Mugprintz%20Storefront.jpg">
     </div>
-  </div>
+  </BasePageTemplate>
 </template>
 <script setup>
 import GoogleLocationEmbedComponent from '@/components/GoogleLocationEmbedComponent.vue'
+import BasePageTemplate from '@/views/Base/BasePageTemplate.vue'
 </script>
 <style scoped>
 .page{

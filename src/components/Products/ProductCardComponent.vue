@@ -2,7 +2,7 @@
   <LoadingProductCardComponent v-if="!product" />
 
   <div v-else class="product-card">
-    <img :src="product.imgSrc" :alt="product.name" class="product-image" />
+    <img :src="product.imgSrc" :alt="productCategory + product.name" class="product-image" />
     <h3 class="product-name">{{ product.name }}</h3>
     <p
       v-if="product.description || product.price"
@@ -32,6 +32,7 @@ import MaterialDesignIcon from '@/components/Commonly Used/MaterialDesignIcon.vu
 
 const params = defineProps({
   product: Object,
+  productCategory: String
 })
 
 const isInfoShown = ref(false)

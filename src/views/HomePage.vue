@@ -1,5 +1,5 @@
 <template>
-  <BasePageTemplate>
+  <BasePageTemplate title="Professional Printing Services in Cape Town">
     <div class="welcome-container">
       <div class="welcome-content">
         <h1 class="hero-text">Professional Printing Services in Cape Town!</h1>
@@ -137,6 +137,7 @@ function sendMessage() {
 .page{
   padding-top: 0;
 }
+
 .welcome-container {
   width: 100%;
   display: grid;
@@ -199,6 +200,15 @@ function sendMessage() {
   align-items: flex-start;
   justify-content: center;
   width: 50%;
+}
+
+.service-item h4{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  gap: 10px;
 }
 
 .how-it-works{

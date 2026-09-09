@@ -48,7 +48,7 @@
       </nav>
     </div>
     <div class="container versioning">
-      <p class="version-number">Version: {{web_configuration.version}}</p>
+      <p class="version-number">Version: {{packageJson.version}}</p>
     </div>
   </footer>
   <div v-if="web_configuration.showGithubBanner" class="container developer">
@@ -59,6 +59,7 @@
 <script setup>
 import router from '@/router/index.js'
 import { web_configuration } from '../../web_configuration.js'
+import packageJson from '../../package.json'
 
 const basicRoutes = router.getRoutes().filter(x=>x.meta.category === 'basic')
 const legalRoutes = router.getRoutes().filter(x=>x.meta.category === 'legal')

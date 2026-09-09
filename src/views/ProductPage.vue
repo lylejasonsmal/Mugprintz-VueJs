@@ -1,4 +1,5 @@
 <template>
+  <BasePageTemplate title="Our Products">
   <div class="ad-banner">
     <div class="banner-track">
       <div class="banner-item">
@@ -49,18 +50,28 @@
       <ProductCategoryCardComponent :category="categoryName" />
     </div>
   </div>
+
+  </BasePageTemplate>
 </template>
 
 <script setup>
 import productCategories from '@/assets/Products/ProductCategories.js'
 import ProductCategoryCardComponent from '@/components/ProductCategoryCardComponent.vue'
+import BasePageTemplate from '@/views/Base/BasePageTemplate.vue'
+import MaterialDesignIcon from '@/components/Commonly Used/MaterialDesignIcon.vue'
 </script>
 
 <style scoped>
+.page{
+  padding-top: 0;
+}
+
 .container {
   display: flex;
   flex-direction: column;
-  padding: 5px;
+  padding: 20px;
+  width: 100%;
+  margin: 10px auto;
 }
 
 .ad-banner {

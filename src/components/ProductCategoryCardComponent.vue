@@ -13,7 +13,7 @@ const products = productCategories[params.category] || []
   <div class="category-section">
     <h1>{{ category }}</h1>
     <div class="products-row">
-      <ProductCardComponent v-for="product in products" :product="product"/>
+      <ProductCardComponent v-for="product in products" :product="product" :product-category="category"/>
     </div>
   </div>
 </template>
