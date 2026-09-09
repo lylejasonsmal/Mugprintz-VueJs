@@ -47,6 +47,9 @@
         <router-link v-for="route in legalRoutes" :to="route.path"> {{ route.name }} </router-link>
       </nav>
     </div>
+    <div class="container versioning">
+      <p class="version-number">Version: {{web_configuration.version}}</p>
+    </div>
   </footer>
   <div v-if="web_configuration.showGithubBanner" class="container developer">
   <h3>
@@ -113,6 +116,21 @@ footer {
   height: 100%;
   padding: 15px;
   border-left: 2px solid #3D3D3D;
+}
+
+.versioning{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+
+.version-number{
+  font-size: 80%;
+  color: #969696;
+  margin: 0;
+  font-weight: bold;
 }
 
 .developer{
@@ -182,6 +200,7 @@ a:hover {
     align-items: flex-start;
     gap: 20px;
   }
+
   .navigation nav{
     display: flex;
     flex-direction: row;
@@ -189,8 +208,14 @@ a:hover {
     align-items: center;
     width: 100%;
   }
+
   .bottom nav{
     border: none;
+  }
+
+  .versioning{
+    justify-content: center;
+    align-items: center;
   }
 }
 
